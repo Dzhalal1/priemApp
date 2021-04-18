@@ -1,0 +1,7 @@
+{
+  "name": "priemApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
