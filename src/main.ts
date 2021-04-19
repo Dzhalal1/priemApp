@@ -3,6 +3,8 @@ import App from './App.vue'
 import router from './router';
 import { IonicVue } from '@ionic/vue';
 import './tailwind.css'
+import ElementPlus from 'element-plus';
+import 'element-plus/lib/theme-chalk/index.css';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/vue/css/core.css';
@@ -11,6 +13,7 @@ import '@ionic/vue/css/core.css';
 import '@ionic/vue/css/normalize.css';
 import '@ionic/vue/css/structure.css';
 import '@ionic/vue/css/typography.css';
+
 
 /* Optional CSS utils that can be commented out */
 import '@ionic/vue/css/padding.css';
@@ -25,8 +28,9 @@ import './theme/variables.css';
 
 const app = createApp(App)
   .use(IonicVue)
-  .use(router);
-  
+  .use(router)
+
 router.isReady().then(() => {
+  app.use(ElementPlus)
   app.mount('#app');
 });

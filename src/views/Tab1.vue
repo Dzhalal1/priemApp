@@ -1,25 +1,61 @@
 <template>
   <ion-page>
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Tab 1</ion-title>
-      </ion-toolbar>
-    </ion-header>
     <ion-content :fullscreen="true">
-     <div class="flex justify-center">
-       <button class="focus:outline-none hover:bg-indigo-400 bg-purple-400 shadow-2xl rounded-md text-xl p-4 text-indigo-50">
-         Click Me
-       </button>
-     </div>
+      <div class="circle">
+        <ion-grid>
+          <div class="step px-24" style="height: 300px;">
+            <el-steps direction="vertical" :active="1">
+              <el-step title="Подача"></el-step>
+              <el-step title="Подача"></el-step>
+              <el-step title="Подача"></el-step>
+              <el-step title="Подача"></el-step>
+              <el-step title="Подача"></el-step>
+              <el-step title="Подача"></el-step>
+            </el-steps>
+          </div>
+        </ion-grid>
+      </div>
     </ion-content>
   </ion-page>
 </template>
 
 <script lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
+import {IonPage, IonButton, IonHeader, IonToolbar, IonTitle, IonContent} from '@ionic/vue';
 
-export default  {
+export default {
   name: 'Tab1',
-  components: { IonHeader, IonToolbar, IonTitle, IonContent, IonPage }
+  components: {IonContent, IonPage}
 }
 </script>
+<style scoped>
+.step {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 5px 5px 50px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+ion-grid::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#20b2aa, #C1FCF6);
+  clip-path: circle(45% at right 50%);
+}
+
+.circle::before {
+  content: '';
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#20b2aa, #C1FCF6);
+  clip-path: circle(30% at left 50%);
+}
+
+</style>
