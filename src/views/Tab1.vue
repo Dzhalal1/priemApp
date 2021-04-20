@@ -3,16 +3,34 @@
     <ion-content :fullscreen="true">
       <div class="circle">
         <ion-grid>
-          <div class="step px-24" style="height: 300px;">
-<!--            <el-steps  direction="vertical" :active="1">-->
-<!--              <el-step title="Подача"></el-step>-->
-<!--              <el-step title="Подача"></el-step>-->
-<!--              <el-step title="Подача"></el-step>-->
-<!--              <el-step title="Подача"></el-step>-->
-<!--              <el-step title="Подача"></el-step>-->
-<!--              <el-step title="Подача"></el-step>-->
-<!--            </el-steps>-->
-            <p style="color: black; font-family: Impact; font-size: larger;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto debitis ea et expedita minus molestiae quidem ratione reprehenderit sit veritatis.</p>
+          <div class="step px-24">
+            <ul>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
+                     stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+                <p>Подача Документов</p>
+              </li>
+              <li>
+
+              </li>
+              <li>
+
+              </li>
+              <li>
+
+              </li>
+              <li>
+
+              </li>
+              <li>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis cupiditate delectus dignissimos
+                facilis illo nulla officia omnis vitae voluptatum. Aspernatur consequatur dolores eum id modi officia
+                reprehenderit suscipit unde voluptas!
+              </li>
+            </ul>
           </div>
         </ion-grid>
       </div>
@@ -31,32 +49,9 @@ export default {
 <style scoped>
 .step {
   backdrop-filter: blur(10px);
-  background: rgba(35, 175, 175, 0.1);
+  background: rgba(255, 255, 255, 0.8);
   box-shadow: 5px 5px 50px 5px rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  /*border: 2px solid rgba(255, 255, 255, 0.5);*/
 }
-
-ion-grid::before {
-  content: '';
-  position: absolute;
-  top: -200px;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(#20b2aa, #C1FCF6);
-  clip-path: circle(60% at right 50%);
-}
-
-.circle::before {
-  content: '';
-  position: absolute;
-  top: 50px;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(#20b2aa, #C1FCF6);
-  clip-path: circle(30% at left 50%);
-}
-
 </style>
