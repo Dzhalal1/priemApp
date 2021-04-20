@@ -233,7 +233,7 @@ http://ionicframework.com/docs/theming/ */
 }
 
 ion-tab-bar {
-    --color: #a9a9a9;
+    --color: black;
     @apply shadow-2xl;
 }
 ion-tab-button {
