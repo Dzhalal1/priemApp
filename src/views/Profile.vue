@@ -6,7 +6,7 @@
                     <ion-row>
                         <ion-col>
                             <div class="flex justify-end m-2 text-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none"
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none"
                                      viewBox="0 0 24 24"
                                      stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -29,7 +29,7 @@
                     <ion-row>
                         <ion-col>
                             <div class="flex justify-center text-xl text-white">
-                                <p>Name</p>
+                                <p>Имя</p>
                             </div>
                         </ion-col>
                     </ion-row>
@@ -119,7 +119,7 @@
     ion-grid::before {
         content: '';
         position: absolute;
-        top: -400px;
+        top: -330px;
         left: 0;
         width: 100%;
         height: 100%;
@@ -128,9 +128,8 @@
 
     .bcdrp-bg {
         backdrop-filter: blur(5px);
-        background: rgba(255,255,255,0.15);
-        border: 2px solid rgba(255,255,255,0.3);
+        background: rgba(255, 255, 255, 0.2);
+        border: 2px solid rgba(255, 255, 255, 0.3);
     }
-
 
 </style>
