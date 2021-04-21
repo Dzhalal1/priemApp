@@ -46,8 +46,8 @@
                 <ion-footer>
                     <ion-row>
                         <ion-col>
-                            <div class="flex flex-col items-center text-ksaa">
-                                <h5 class="m-0 text-lg">Приемная кампания</h5>
+                            <div class="flex flex-col items-center m-2 text-ksaa">
+                                <h5 class="m-0 text-xl">Приемная кампания</h5>
                                 <h6 class="m-0 text-lg">Костромской ГСХА</h6>
                             </div>
                         </ion-col>
