@@ -2,7 +2,7 @@
   <ion-page>
     <ion-content>
       <ion-grid class="m-4">
-        <div class="bcdrp-bg shadow-2xl rounded-3xl">
+        <div class="bcdrp-bg shadow-xl rounded-3xl">
           <ion-row>
             <ion-col>
               <div class="flex justify-end m-2 text-white">

@@ -257,8 +257,10 @@ ion-tab-button {
     @apply h-7 w-7;
 }
 .sign__submit {
-    @apply flex justify-center;
+    @apply flex justify-center ;
 }
 .sign__submit  button{
     @apply bg-ksaa p-4 text-white text-lg rounded-full shadow w-80 focus:outline-none;
+}
+.step__bg {
 }
