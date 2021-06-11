@@ -79,7 +79,6 @@
             <ion-col>
               <div class="sign__input">
                 <input type="number" placeholder="Телефон"/>
-                `
               </div>
             </ion-col>
           </ion-row>
