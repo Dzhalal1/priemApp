@@ -76,10 +76,9 @@
         },
         methods: {
             async signIn() {
-                console.log(await storage)
-
                 this.axios.post('user/auth/token/login', this.form).then(response => {
-                    console.log(response)
+                    this.$store.commit('setStations', response.data)
+                    this.axios.defaults.headers.common['Authorization'] = 'Token ' + response.data.auth_token
                 }).catch(error => {
                     console.log(error.response)
                 })

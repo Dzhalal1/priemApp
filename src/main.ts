@@ -8,7 +8,7 @@ import 'element-plus/lib/theme-chalk/index.css';
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import './plugins/storage'
-
+import {store} from "@/store";
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/vue/css/core.css';
@@ -36,6 +36,7 @@ const app = createApp(App)
     .use(IonicVue)
     .use(router)
     .use(VueAxios, axios)
+    .use(store)
 
 router.isReady().then(() => {
     app.use(ElementPlus)
