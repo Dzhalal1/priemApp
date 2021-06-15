@@ -262,5 +262,7 @@ ion-tab-button {
 .sign__submit  button{
     @apply bg-ksaa p-4 text-white text-lg rounded-full shadow w-80 focus:outline-none;
 }
-.step__bg {
+.check_box {
+    @apply flex items-center p-4 text-lg w-80 mx-auto hover:text-gray-500;
+
 }

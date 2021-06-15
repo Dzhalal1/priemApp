@@ -1,4 +1,5 @@
 import {createStore} from 'vuex'
+import createPersistedState from "vuex-persistedstate";
 
 export const store = createStore({
     state() {
@@ -14,5 +15,11 @@ export const store = createStore({
             state.authToken = payload.auth_token
             state.userId = payload.user_id
         }
-    }
+    },
+    getters: {
+        getToken(state: any) {
+            return state.authToken
+        }
+    },
+    plugins: [createPersistedState()],
 })

@@ -61,7 +61,6 @@
 <script>
     import {IonPage, IonGrid, IonContent, IonRow, IonCol, IonFooter} from '@ionic/vue';
     import {} from 'ionicons/icons';
-    import storage from "../plugins/storage";
 
     export default {
         name: "SignIn",
@@ -79,6 +78,7 @@
                 this.axios.post('user/auth/token/login', this.form).then(response => {
                     this.$store.commit('setStations', response.data)
                     this.axios.defaults.headers.common['Authorization'] = 'Token ' + response.data.auth_token
+                    this.$router.push('/home')
                 }).catch(error => {
                     console.log(error.response)
                 })
