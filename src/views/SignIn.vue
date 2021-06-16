@@ -115,11 +115,11 @@
     /*    @apply animate-bounce-before;*/
     /*}*/
     .circle_two {
-        @apply absolute top-44 rounded-full -left-2 w-96 h-96 filter blur-3xl animate-bounce;
+        @apply absolute top-44 rounded-full -left-2 w-96 h-96 filter animate-bounce;
         background: linear-gradient(#C1FCF6, rgba(32, 178, 170, 0.5));
     }
     .circle_three {
-        @apply absolute top-44 rounded-full -right-2 w-96 h-96 filter blur-3xl animate-bounce-before;
+        @apply absolute top-44 rounded-full -right-2 w-96 h-96 filter animate-bounceBefore;
         background: linear-gradient(#C1FCF6, rgba(32, 178, 170, 0.5));
     }
 
