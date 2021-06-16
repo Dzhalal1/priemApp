@@ -10,8 +10,8 @@ module.exports = {
         extend: {
             backgroundColor: ['active'],
             animation: {
-                bounce: 'bounce 5s infinite',
-                'bounce-before': 'bounce 3s infinite',
+                bounce: 'bounce 16s infinite',
+                'bounce-before': 'bounce 12s infinite',
             },
             // keyframes: {
             //     bounce: {

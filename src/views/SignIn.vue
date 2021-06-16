@@ -1,6 +1,10 @@
 <template>
     <ion-page>
         <ion-content :fullscreen="true">
+            <div class="circle_two">
+            </div>
+            <div class="circle_three">
+            </div>
             <div class="circle">
                 <ion-grid class="py-48 ion-justify-content-center">
                     <ion-row>
@@ -87,28 +91,36 @@
     }
 </script>
 <style scoped>
-    ion-grid::before {
-        content: '';
-        position: absolute;
-        top: -200px;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(#5375C5, #20b2aa);
-        clip-path: circle(60% at right 50%);
-        @apply animate-bounce;
-    }
+    /*ion-grid::before {*/
+    /*    content: '';*/
+    /*    position: absolute;*/
+    /*    top: -200px;*/
+    /*    left: 0;*/
+    /*    width: 100%;*/
+    /*    height: 100%;*/
+    /*    background: linear-gradient(#5375C5, #20b2aa);*/
+    /*    clip-path: circle(60% at right 50%);*/
+    /*    @apply animate-bounce;*/
+    /*}*/
 
-    .circle::before {
-        content: '';
-        position: absolute;
-        top: 50px;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(#5375C5, #20b2aa);
-        clip-path: circle(37% at left 50%);
-        @apply animate-bounce-before;
+    /*.circle::before {*/
+    /*    content: '';*/
+    /*    position: absolute;*/
+    /*    top: 50px;*/
+    /*    left: 0;*/
+    /*    width: 100%;*/
+    /*    height: 100%;*/
+    /*    background: linear-gradient(#5375C5, #20b2aa);*/
+    /*    clip-path: circle(37% at left 50%);*/
+    /*    @apply animate-bounce-before;*/
+    /*}*/
+    .circle_two {
+        @apply absolute top-44 rounded-full -left-2 w-96 h-96 filter blur-3xl animate-bounce;
+        background: linear-gradient(#C1FCF6, rgba(32, 178, 170, 0.5));
+    }
+    .circle_three {
+        @apply absolute top-44 rounded-full -right-2 w-96 h-96 filter blur-3xl animate-bounce-before;
+        background: linear-gradient(#C1FCF6, rgba(32, 178, 170, 0.5));
     }
 
 </style>

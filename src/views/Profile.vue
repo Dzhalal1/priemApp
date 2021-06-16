@@ -128,7 +128,7 @@
         },
         methods: {
             signOut() {
-                this.$store.commit('setStation', {
+                this.$store.commit('setStations', {
                     applicant_id: null,
                     auth_token: null,
                     user_id: null
