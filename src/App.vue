@@ -18,8 +18,12 @@
             const signIn = this.$store.getters.getToken === null
             if (signIn && this.$route.path !== '/login') {
                 this.$router.push('/login')
-            }else {
-                this.axios.defaults.headers.common['Authorization'] = 'Token ' + this.$store.getters.getToken
+            } else {
+                if (signIn) {
+                    delete this.axios.defaults.headers.common['Authorization']
+                } else {
+                    this.axios.defaults.headers.common['Authorization'] = 'Token ' + this.$store.getters.getToken
+                }
             }
         }
     });

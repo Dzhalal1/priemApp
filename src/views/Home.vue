@@ -5,17 +5,15 @@
                 <ion-grid class="m-4">
 
                     <div class="step__bg shadow-xl text-lg">
-<!--                        <div class="flex justify-center text-2xl">-->
-<!--                            <p>Статус</p>-->
-<!--                        </div>-->
                         <div class="flex justify-center pb-6">
                             <img :src="require('../assets/img/SetupWizardpana.svg')" alt="">
                         </div>
 
                         <div class="step">
                             <ul>
-                                <li class="text-ksaa">
-                                    <span>
+                                <li :key="status.id" v-for="status in statuses.filter(s=> !s.hide)"
+                                    :class="{'text-ksaa': status.id <= currentStatus.status_id  && status.id < 6,'text-red-400':status.id===6,'flex':true,'items-center':true}">
+                                    <span v-if="status.id<6">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
                                          fill="currentColor">
                                         <path fill-rule="evenodd"
@@ -23,73 +21,16 @@
                                               clip-rule="evenodd"/>
                                     </svg>
                                     </span>
+                                    <span v-else>
+                                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                           fill="currentColor">
+  <path fill-rule="evenodd"
+        d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+        clip-rule="evenodd"/>
+</svg>
+                                   </span>
                                     <div>
-                                        Document
-                                    </div>
-                                </li>
-                                <li>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
-                                         fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                              clip-rule="evenodd"/>
-                                    </svg>
-                                </span>
-                                    <div>
-                                        Document
-                                    </div>
-                                </li>
-                                <li>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
-                                         fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                              clip-rule="evenodd"/>
-                                    </svg>
-                                </span>
-                                    <div>
-                                        Document
-                                    </div>
-                                </li>
-                                <li>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
-                                         fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                              clip-rule="evenodd"/>
-                                    </svg>
-                                </span>
-                                    <div>
-                                        Document
-                                    </div>
-                                </li>
-                                <li>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
-                                         fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                              clip-rule="evenodd"/>
-                                    </svg>
-                                </span>
-                                    <div>
-                                        Document
-                                    </div>
-                                </li>
-                                <li>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
-                                         fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                              clip-rule="evenodd"/>
-                                    </svg>
-                                </span>
-                                    <div>
-                                        Document
+                                        {{status.title}}
                                     </div>
                                 </li>
                             </ul>
@@ -108,7 +49,61 @@
 
     export default {
         name: 'Home',
-        components: {IonContent, IonPage, IonGrid}
+        components: {IonContent, IonPage, IonGrid},
+        data() {
+            return {
+                currentStatus: {
+                    status_id: 0,
+                    is_ege: false
+                },
+                statuses: [
+                    {
+                        id: 1,
+                        title: 'Процесс подачи',
+                        hide: false
+                    },
+                    {
+                        id: 2,
+                        title: 'Одобрен',
+                        hide: false
+                    },
+                    {
+                        id: 3,
+                        title: 'Ожидание ВИ',
+                        hide: false
+                    },
+                    {
+                        id: 4,
+                        title: 'Ожидние ПК',
+                        hide: false
+                    },
+                    {
+                        id: 5,
+                        title: 'Поступил',
+                        hide: false
+                    },
+                    {
+                        id: 6,
+                        title: 'Отказ',
+                        hide: false
+                    },
+                ]
+            }
+        },
+        methods: {
+            getStatus() {
+                this.axios.get('/api/status/' + this.$store.getters.getApplicantId + '/').then(response => {
+                    this.currentStatus = response.data
+                    this.statuses[2].hide = response.data.is_ege
+                    console.log(response.data)
+                    this.statuses[4].hide = response.data.order_complete && !response.data.in_order
+                    this.statuses[5].hide = (response.data.order_complete && response.data.in_order) || (!response.data.order_complete && !response.data.in_order)
+                })
+            }
+        },
+        created() {
+            this.getStatus()
+        }
     }
 </script>
 <style scoped>
@@ -122,7 +117,8 @@
 
     }
 
-    .step ul::before {
+
+    .step ul ::before {
         content: '';
         position: absolute;
         width: 2px;
@@ -130,6 +126,7 @@
         top: 0;
         left: 0;
         background: darkgrey;
+        z-index: -1;
     }
 
     .step ul li {

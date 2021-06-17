@@ -51,8 +51,8 @@
                     <ion-row>
                         <ion-col>
                             <div class="flex flex-col items-center m-2 text-ksaa">
-                                <h5 class="m-0 text-xl">Приемная кампания</h5>
-                                <h6 class="m-0 text-lg">Костромской ГСХА</h6>
+                                <h5 class="m-0 text-lg">Приемная кампания</h5>
+                                <h6 class="m-0 text-md">Костромской ГСХА</h6>
                             </div>
                         </ion-col>
                     </ion-row>
@@ -78,7 +78,7 @@
             }
         },
         methods: {
-            async signIn() {
+            signIn() {
                 this.axios.post('user/auth/token/login', this.form).then(response => {
                     this.$store.commit('setStations', response.data)
                     this.axios.defaults.headers.common['Authorization'] = 'Token ' + response.data.auth_token
@@ -115,11 +115,11 @@
     /*    @apply animate-bounce-before;*/
     /*}*/
     .circle_two {
-        @apply absolute top-44 rounded-full -left-2 w-96 h-96 filter animate-bounce;
+        @apply absolute top-44 rounded-full -left-2 w-96 h-96 filter blur-2xl animate-bounce;
         background: linear-gradient(#C1FCF6, rgba(32, 178, 170, 0.5));
     }
     .circle_three {
-        @apply absolute top-44 rounded-full -right-2 w-96 h-96 filter animate-bounceBefore;
+        @apply absolute top-44 rounded-full -right-2 w-96 h-96 filter blur-2xl animate-bounceBefore;
         background: linear-gradient(#C1FCF6, rgba(32, 178, 170, 0.5));
     }
 

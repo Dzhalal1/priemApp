@@ -19,6 +19,9 @@ export const store = createStore({
     getters: {
         getToken(state: any) {
             return state.authToken
+        },
+        getApplicantId(state: any) {
+            return state.applicantId
         }
     },
     plugins: [createPersistedState()],
