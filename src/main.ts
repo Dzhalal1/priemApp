@@ -3,8 +3,8 @@ import App from './App.vue'
 import router from './router';
 import {IonicVue} from '@ionic/vue';
 import './tailwind.css'
-import ElementPlus from 'element-plus';
-import 'element-plus/lib/theme-chalk/index.css';
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import './plugins/storage'
@@ -39,6 +39,5 @@ const app = createApp(App)
     .use(store)
 
 router.isReady().then(() => {
-    app.use(ElementPlus)
     app.mount('#app');
 });

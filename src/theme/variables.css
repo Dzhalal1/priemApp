@@ -246,7 +246,8 @@ ion-tab-button {
     --color: #9CA3AF;
 }
 .sign__input {
-    @apply flex bg-gray-100 p-4 text-lg rounded-full w-80 mx-auto hover:text-gray-500 shadow-inner;
+    @apply flex p-4 text-lg rounded-full w-80 mx-auto hover:text-gray-600 shadow-inner;
+    background: #E9FDFB;
 }
 
 .sign__input input {
@@ -255,6 +256,7 @@ ion-tab-button {
 
 .sign__input svg {
     @apply h-7 w-7;
+    color: #20b2aa;
 }
 .sign__submit {
     @apply flex justify-center ;
