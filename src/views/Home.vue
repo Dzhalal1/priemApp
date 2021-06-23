@@ -12,8 +12,9 @@
                         <div class="step">
                             <ul>
                                 <li :key="status.id" v-for="status in statuses.filter(s=> !s.hide)"
-                                    :class="{'text-ksaa': status.id <= currentStatus.status_id  && status.id < 6,'text-red-400':status.id===6,'flex':true,'items-center':true}">
-                                    <span v-if="status.id<6">
+                                    :class="{'text-ksaa': status.id <= currentStatus.status_id  && status.id < 6,'text-red-400':status.id===6,'items-center':true,'grid':true,'flex':true,'grid-cols-1':true}">
+                                    <div class="flex justify-between">
+                                        <span v-if="status.id<6">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
                                          fill="currentColor">
                                         <path fill-rule="evenodd"
@@ -21,7 +22,7 @@
                                               clip-rule="evenodd"/>
                                     </svg>
                                     </span>
-                                    <span v-else>
+                                        <span v-else>
                                       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
                                            fill="currentColor">
   <path fill-rule="evenodd"
@@ -29,9 +30,28 @@
         clip-rule="evenodd"/>
 </svg>
                                    </span>
-                                    <div>
-                                        {{status.title}}
+                                        <div>
+                                            {{status.title}}
+                                        </div>
+                                        <div>
+                                            <svg @click="status.show_description=!status.show_description"
+                                                 xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                 viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M19 9l-7 7-7-7"/>
+                                            </svg>
+                                        </div>
                                     </div>
+
+                                    <div v-if="getstatusDiscriptions(status.id)!=={}">
+                                        <accept-detail v-if="status.id===2" :hide="status.show_description"
+                                                       :info="getstatusDiscriptions(status.id).detail"></accept-detail>
+                                        <exam-detail v-if="status.id===3"
+                                                     :info="getstatusDiscriptions(status.id).detail"></exam-detail>
+                                        <result-p-k v-if="status.id===4"
+                                                    :info="getstatusDiscriptions(status.id).detail"></result-p-k>
+                                    </div>
+
                                 </li>
                             </ul>
                         </div>
@@ -46,10 +66,13 @@
 
 <script>
     import {IonPage, IonButton, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid} from '@ionic/vue';
+    import AcceptDetail from "@/components/AcceptDetail";
+    import ExamDetail from "@/components/ExamDetail";
+    import ResultPK from "@/components/ResultPK";
 
     export default {
         name: 'Home',
-        components: {IonContent, IonPage, IonGrid},
+        components: {IonContent, IonPage, IonGrid, AcceptDetail, ExamDetail, ResultPK},
         data() {
             return {
                 currentStatus: {
@@ -60,45 +83,58 @@
                     {
                         id: 1,
                         title: 'Процесс подачи',
-                        hide: false
+                        hide: false,
+                        show_description: false,
                     },
                     {
                         id: 2,
                         title: 'Одобрен',
-                        hide: false
+                        hide: false,
+                        show_description: false,
                     },
                     {
                         id: 3,
                         title: 'Ожидание ВИ',
-                        hide: false
+                        hide: false,
+                        show_description: false,
                     },
                     {
                         id: 4,
                         title: 'Ожидние ПК',
-                        hide: false
+                        hide: false,
+                        show_description: false
                     },
                     {
                         id: 5,
                         title: 'Поступил',
-                        hide: false
+                        hide: false,
+                        show_description: false
                     },
                     {
                         id: 6,
                         title: 'Отказ',
-                        hide: false
+                        hide: false,
+                        show_description: false
                     },
-                ]
+                ],
+                statusDiscriptions: []
             }
         },
         methods: {
             getStatus() {
                 this.axios.get('/api/status/' + this.$store.getters.getApplicantId + '/').then(response => {
                     this.currentStatus = response.data
+                    this.statusDiscriptions = response.data.detail
                     this.statuses[2].hide = response.data.is_ege
                     console.log(response.data)
                     this.statuses[4].hide = response.data.order_complete && !response.data.in_order
                     this.statuses[5].hide = (response.data.order_complete && response.data.in_order) || (!response.data.order_complete && !response.data.in_order)
                 })
+            },
+            getstatusDiscriptions(status_id) {
+                if (this.statusDiscriptions.length !== 0)
+                    return this.statusDiscriptions[status_id - 1]
+                else return []
             }
         },
         created() {
