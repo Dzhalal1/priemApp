@@ -29,14 +29,14 @@
                     <ion-row>
                         <ion-col>
                             <div class="flex justify-center text-xl text-white">
-                                <p>Имя</p>
+                                <p>{{user.first_name}}</p>
                             </div>
                         </ion-col>
                     </ion-row>
                     <ion-row>
                         <ion-col>
                             <div class="flex justify-center text-xl text-white">
-                                <p>№ 1101</p>
+                                <p>{{$store.getters.getApplicantId}}</p>
                             </div>
                         </ion-col>
                     </ion-row>
@@ -164,7 +164,8 @@
         width: 100%;
         height: 100%;
         border-radius: 1.5rem;
-        background: linear-gradient(#5375C5, #20b2aa);
+        /*background: linear-gradient(#5375C5, #20b2aa);*/
+        background: #20b2aa;
     }
 
     .bcdrp-bg {

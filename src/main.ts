@@ -3,8 +3,6 @@ import App from './App.vue'
 import router from './router';
 import {IonicVue} from '@ionic/vue';
 import './tailwind.css'
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import './plugins/storage'
@@ -30,7 +28,7 @@ import '@ionic/vue/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-axios.defaults.baseURL = 'http://192.168.0.103:8075/'
+axios.defaults.baseURL = 'https://priem.kgsxa.ru/'
 
 const app = createApp(App)
     .use(IonicVue)

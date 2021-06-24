@@ -4,6 +4,7 @@
             <div class="circle">
                 <ion-grid class="m-4">
 
+
                     <div class="step__bg shadow-xl text-lg">
                         <div class="flex justify-center pb-6">
                             <img :src="require('../assets/img/SetupWizardpana.svg')" alt="">
@@ -190,7 +191,8 @@
         width: 100%;
         height: 100%;
         border-radius: 2rem;
-        background: linear-gradient(#5375C5, #20b2aa);
+        /*background: linear-gradient(#5375C5, #20b2aa);*/
+        background: #20b2aa;
     }
 
     .step__bg {
