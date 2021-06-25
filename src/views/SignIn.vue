@@ -4,6 +4,7 @@
             <div class="circle_two">
             </div>
             <div class="circle_three">
+                <img :src="require('./../assets/img/Wawestwo.svg')" alt="">
             </div>
             <div class="circle">
                 <ion-grid class="py-48 ion-justify-content-center">
@@ -126,13 +127,14 @@
     /*    clip-path: circle(37% at left 50%);*/
     /*    @apply animate-bounce-before;*/
     /*}*/
-    .circle_two {
-        @apply absolute top-44 rounded-full -left-2 w-96 h-96 filter blur-2xl animate-bounce;
-        background: linear-gradient(#C1FCF6, rgba(32, 178, 170, 0.5));
-    }
+    /*.circle_two {*/
+    /*    @apply absolute top-44 rounded-full -left-2 w-96 h-96 filter blur-2xl animate-bounce;*/
+    /*    background: linear-gradient(#C1FCF6, rgba(32, 178, 170, 0.5));*/
+    /*}*/
     .circle_three {
-        @apply absolute top-44 rounded-full -right-2 w-96 h-96 filter blur-2xl animate-bounceBefore;
-        background: linear-gradient(#C1FCF6, rgba(32, 178, 170, 0.5));
+        @apply absolute top-0 w-full;
+        /*rounded-full -right-2 w-96 h-96 filter blur-2xl animate-bounceBefore*/
+        /*background: linear-gradient(#C1FCF6, rgba(32, 178, 170, 0.5));*/
     }
 
 </style>

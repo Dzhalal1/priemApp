@@ -246,8 +246,9 @@ ion-tab-button {
     --color: #9CA3AF;
 }
 .sign__input {
-    @apply flex p-4 text-lg rounded-full w-80 mx-auto hover:text-gray-600 shadow-inner;
-    background: #E9FDFB;
+    @apply flex p-4 text-lg rounded-xl w-80 mx-auto hover:text-gray-600 shadow-lg;
+    /*background: #E9FDFB;*/
+    background: white;
 }
 
 .sign__input input {
@@ -262,7 +263,7 @@ ion-tab-button {
     @apply flex justify-center ;
 }
 .sign__submit  button{
-    @apply bg-ksaa p-4 text-white text-lg rounded-full shadow w-80 focus:outline-none;
+    @apply bg-ksaa p-4 text-white text-xl rounded-lg shadow-md w-80 focus:outline-none;
 }
 .check_box {
     @apply flex items-center p-4 text-lg w-80 mx-auto hover:text-gray-500;
