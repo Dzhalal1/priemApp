@@ -7,7 +7,8 @@
 
                     <div class="step__bg shadow-xl text-lg">
                         <div class="flex justify-center pb-6">
-                            <img :src="require('../assets/img/SetupWizardpana.svg')" alt="">
+<!--                            <img :src="require('../assets/img/UserStatusMonochromatic.svg')" alt="">-->
+                            <img :src="require('../assets/img/FacebookMonochromatic.svg')" alt="">
                         </div>
 
                         <div class="step">
