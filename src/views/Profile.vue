@@ -2,7 +2,7 @@
     <ion-page>
         <ion-content>
             <ion-grid class="m-4">
-                <div class="bcdrp-bg shadow-2xl rounded-xl">
+                <div class="bcdrp-bg shadow-md rounded-xl">
                     <ion-row>
                         <ion-col>
                             <div class="flex justify-end m-2 text-white" @click="signOut">
@@ -156,25 +156,13 @@
 </script>
 
 <style scoped>
-    /*ion-grid::before {*/
-    /*    content: '';*/
-    /*    position: absolute;*/
-    /*    top: -330px;*/
-    /*    left: 0;*/
-    /*    width: 100%;*/
-    /*    height: 100%;*/
-    /*    border-radius: 1.5rem;*/
-    /*background: linear-gradient(#5375C5, #20b2aa);*/
-    /*background: #20b2aa;*/
-    /*}*/
-
-
-    .bcdrp-bg {
-        backdrop-filter: blur(5px);
-        background: rgba(32, 178, 170, 0.2);
-        /*background: #20b2aa;*/
-        /*@apply opacity-90;*/
-        /*border: 2px solid rgba(255, 255, 255, 0.3);*/
+    ion-content {
+        --background: linear-gradient(to bottom, #20b2aa 54%, transparent 50%);
     }
 
+    .bcdrp-bg {
+        backdrop-filter: blur(50px);
+        background:  rgba(255, 255, 255, 0);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
 </style>
