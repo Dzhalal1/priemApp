@@ -5,14 +5,15 @@ import Tabs from '../views/Tabs.vue'
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/',
-        redirect: '/home'
+        redirect: '/tabs/home'
     },
     {
+        name: 'Login',
         path: '/login',
         component: () => import('@/views/SignIn.vue')
     },
     {
-        path: '/',
+        path: '/tabs/',
         component: Tabs,
         children: [
             {
@@ -36,6 +37,14 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
     routes
+})
+router.beforeEach((to, from, next) => {
+    const store = localStorage.getItem('vuex')
+    if (to.name !== 'Login' && (store === null || JSON.parse(`${store}`).authToken === null)) {
+        next({name: 'Login'})
+    } else {
+        next()
+    }
 })
 
 export default router

@@ -106,7 +106,7 @@
                 this.axios.post('user/auth/token/login', this.form).then(response => {
                     this.$store.commit('setStations', response.data)
                     this.axios.defaults.headers.common['Authorization'] = 'Token ' + response.data.auth_token
-                    this.$router.push('/home')
+                    this.$router.push('/tabs/home')
                 }).catch ( async error => {
                     let message = 'Ошибка сервера. Обратитесь в службу поддержки. +7(4942)629-123'
                     console.log(error.response.data)
