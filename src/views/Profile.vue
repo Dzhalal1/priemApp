@@ -71,14 +71,14 @@
                     <ion-row>
                         <ion-col>
                             <div class="sign__input">
-                                <input type="number" v-model="user.phone_number" disabled placeholder="Телефон"/>
+                                <input v-model="user.phone_number" disabled placeholder="Телефон"/>
                             </div>
                         </ion-col>
                     </ion-row>
                     <ion-row>
                         <ion-col>
                             <div class="sign__input">
-                                <input type="number" v-model="user.snils" placeholder="Снилс"/>
+                                <input v-model="user.snils" placeholder="Снилс"/>
                             </div>
                         </ion-col>
                     </ion-row>
@@ -106,8 +106,8 @@
 </template>
 
 <script>
-    import {IonPage, IonGrid, IonContent, IonRow, IonCol,} from '@ionic/vue';
-    import {} from 'ionicons/icons';
+    import {IonPage, IonGrid, IonContent, IonRow, IonCol, toastController,} from '@ionic/vue';
+    import { mapState } from 'vuex';
 
     export default {
         name: "Profile",
@@ -144,14 +144,34 @@
                 if (typeof (this.user.img) === 'string') {
                     delete this.user.img
                 }
-                this.axios.patch('user/me/', this.user).then(response => {
+                this.axios.patch('user/me/', this.user).then(async response => {
                     this.user = response.data
+                    const toast = await toastController
+                        .create({
+                            message: 'Данные успешно сохраненны',
+                            position: 'top',
+                            translucent: true,
+                            cssClass: 'success-message',
+                            animated: true,
+                            duration: 2000
+                        })
+                    return toast.present();
                 })
             }
         },
         created() {
             this.getUserInfo()
-        }
+        },
+        computed: mapState(['applicantId']),
+        watch: {
+            applicantId(newValue, oldValue) {
+                console.log(`Updating from ${oldValue} to ${newValue}`);
+
+                if (newValue !== null ) {
+                    this.getUserInfo()
+                }
+            },
+        },
     }
 </script>
 

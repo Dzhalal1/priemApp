@@ -9,10 +9,11 @@
                         </div>
 
                         <div class="step">
-                            <ul>
+                            <ul v-if="currentStatus.status_id !== 0">
                                 <li :key="status.id" v-for="status in statuses.filter(s=> !s.hide)"
                                     :class="{'text-ksaa': status.id <= currentStatus.status_id  && status.id < 6,'text-red-400':status.id===6,'items-center':true,'grid':true,'flex':true,'grid-cols-1':true}">
-                                    <div class="flex justify-between">                                        <span v-if="status.id<6">
+                                    <div class="flex justify-between items-center">
+                                        <span v-if="status.id<6">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
                                          fill="currentColor">
                                         <path fill-rule="evenodd"
@@ -52,7 +53,11 @@
 
                                 </li>
                             </ul>
+                            <div v-else><p>Процесс подачи заявления не начат. Если у Вас есть трудности, Вы можете обратится в службу поддержки
+                                <a href="tel:+7(4942)629-123">+7(4942)629-123</a> или отправить пакет документов на почту
+                                <a href="mailto:pk@ksaa.edu.ru">pk@ksaa.edu.ru</a> </p></div>
                         </div>
+
                     </div>
                 </ion-grid>
             </div>
@@ -81,37 +86,37 @@
                 statuses: [
                     {
                         id: 1,
-                        title: 'Процесс подачи',
+                        title: 'В процессе подачи',
                         hide: false,
                         show_description: false,
                     },
                     {
                         id: 2,
-                        title: 'Одобрен',
+                        title: 'Одобренно секретаром',
                         hide: false,
                         show_description: false,
                     },
                     {
                         id: 3,
-                        title: 'Ожидание ВИ',
+                        title: 'Ожидание вступительных испытаний',
                         hide: false,
                         show_description: false,
                     },
                     {
                         id: 4,
-                        title: 'Ожидние ПК',
+                        title: 'Ожидние результатов приемной компании',
                         hide: false,
                         show_description: false
                     },
                     {
                         id: 5,
-                        title: 'Поступил',
+                        title: 'Зачислен на обучение',
                         hide: false,
                         show_description: false
                     },
                     {
                         id: 6,
-                        title: 'Отказ',
+                        title: 'Не зачислен на обучение',
                         hide: false,
                         show_description: false
                     },
@@ -143,7 +148,7 @@
 </script>
 <style scoped>
     .step {
-        padding: 10px 40px;
+        padding: 10px 10px 10px 30px;
     }
 
     .step ul {
@@ -164,10 +169,11 @@
     /*}*/
 
     .step ul li {
-        padding: 20px;
+        padding: 10px 0;
     }
 
-    .step ul li span {
+    .step ul li span  {
+        vertical-align: center;
         position: absolute;
         left: -9px;
         /*background: white;*/

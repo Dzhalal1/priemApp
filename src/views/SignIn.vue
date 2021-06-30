@@ -85,7 +85,7 @@
 </template>
 
 <script>
-    import {IonPage, IonGrid, IonContent, IonRow, IonCol, IonFooter} from '@ionic/vue';
+    import {IonPage, IonGrid, IonContent, IonRow, IonCol, IonFooter, toastController} from '@ionic/vue';
     import {} from 'ionicons/icons';
 
     export default {
@@ -107,8 +107,21 @@
                     this.$store.commit('setStations', response.data)
                     this.axios.defaults.headers.common['Authorization'] = 'Token ' + response.data.auth_token
                     this.$router.push('/home')
-                }).catch(error => {
-                    console.log(error.response)
+                }).catch ( async error => {
+                    let message = 'Ошибка сервера. Обратитесь в службу поддержки. +7(4942)629-123'
+                    console.log(error.response.data)
+                    if (error.response.status === 400)
+                        message = 'Невозможно войти в систему с указанными учётными данными.'
+                    const toast = await toastController
+                        .create({
+                            message,
+                            position: 'top',
+                            translucent: true,
+                            cssClass: 'error-message',
+                            animated: true,
+                            duration: 3000
+                        })
+                    return toast.present();
                 })
             }
         }

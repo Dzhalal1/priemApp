@@ -231,6 +231,14 @@ http://ionicframework.com/docs/theming/ */
         --ion-card-background: #1e1e1e;
     }
 }
+ion-toast.error-message {
+    --background: #ebc8c4 !important;
+    color: #a22c26;
+}
+ion-toast.success-message {
+    --background: #d4edda !important;
+    color: #156555;
+}
 
 ion-tab-bar {
     --color: #9CA3AF;
