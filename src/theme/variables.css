@@ -242,7 +242,9 @@ ion-toast.success-message {
 
 ion-tab-bar {
     --color: #9CA3AF;
-    @apply shadow-2xl;
+    /*--background: #20b2aa;*/
+    /*--color: white;*/
+    @apply shadow-2xl h-20 rounded-t-2xl;
 }
 
 ion-content {
@@ -250,12 +252,13 @@ ion-content {
 }
 
 ion-tab-button {
+    /*--color-selected: #007D76;*/
     --color-selected: #20b2aa;
 }
 
 * {
     font-family: "SFProDisplayMedium", sans-serif !important;
-    --color: #9CA3AF;
+    /*--color: white;*/
 }
 .sign__input {
     @apply flex p-4 text-lg rounded-xl w-80 mx-auto hover:text-gray-600 shadow;
