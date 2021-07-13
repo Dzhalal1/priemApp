@@ -1,6 +1,6 @@
 {
   "appId": "com.ksaapriem.app",
-  "appName": "priemApp",
+  "appName": "Приемная Кампания",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "dist",
