@@ -32,18 +32,18 @@
                                         <div>
                                             {{status.title}}
                                         </div>
-                                        <div>
-                                            <svg @click="status.show_description=!status.show_description"
-                                                 xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                 viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                      d="M19 9l-7 7-7-7"/>
-                                            </svg>
-                                        </div>
+<!--                                        <div>-->
+<!--                                            <svg @click="status.show_description=!status.show_description"-->
+<!--                                                 xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"-->
+<!--                                                 viewBox="0 0 24 24" stroke="currentColor">-->
+<!--                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"-->
+<!--                                                      d="M19 9l-7 7-7-7"/>-->
+<!--                                            </svg>-->
+<!--                                        </div>-->
                                     </div>
 
                                     <div v-if="getstatusDiscriptions(status.id)!=={}">
-                                        <accept-detail v-if="status.id===2" :hide="status.show_description"
+                                        <accept-detail v-if="status.id===2" :hide="true"
                                                        :info="getstatusDiscriptions(status.id).detail"></accept-detail>
                                         <exam-detail v-if="status.id===3"
                                                      :info="getstatusDiscriptions(status.id).detail"></exam-detail>
@@ -92,7 +92,7 @@
                     },
                     {
                         id: 2,
-                        title: 'Одобренно секретаром',
+                        title: 'Одобренно секретарём приемной кампании',
                         hide: false,
                         show_description: false,
                     },
@@ -104,7 +104,7 @@
                     },
                     {
                         id: 4,
-                        title: 'Ожидние результатов приемной компании',
+                        title: 'Ожидние результатов приемной кампании',
                         hide: false,
                         show_description: false
                     },

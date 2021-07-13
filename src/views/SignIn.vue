@@ -7,7 +7,7 @@
             <div class="w-40 py-12 mx-auto">
                 <ion-row class="ion-justify-content-center">
                     <ion-col>
-                        <img :src="require('./../assets/img/logotipKsaanewmain.svg')" alt="">
+                        <img :src="require('./../assets/img/logotipKsaanewmain21.svg')" alt="">
                     </ion-col>
                 </ion-row>
             </div>
